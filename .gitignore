@@ -26,3 +26,5 @@ Public/walkie-talkie/package-lock.json
 Public/walkie-talkie/node_modules
 Server/node_modules
 Server/package-lock.json
+
+.env

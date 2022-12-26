@@ -10,3 +10,6 @@ Steps followed:
         -> Cors
         -> DotENV
 
+2. A script was created to initiate Nodemon while the server start. Nodemon is a tool that helps develop Node.js based applications by automatically restarting the node application when file changes in the directory are detected. 
+
+3. A database was connected to the Chat Application. We used MongoDB for the same and a MongoDB cluster was made using free AWS hosting. Further, authentication as well as personal IP adresses were added to the database for safety purposes. Finally, the database was connected to the server 
