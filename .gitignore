@@ -26,5 +26,6 @@ Public/package-lock.json
 Public/node_modules
 Server/node_modules
 Server/package-lock.json
+Public/yarn.lock
 
 .env
