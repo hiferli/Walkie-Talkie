@@ -1,0 +1,12 @@
+Steps followed:
+1. Initial Commit
+    Here, we created a basic ReactJS application as well as installed Node.
+    Thereafter, the following packages of node were installed:
+        -> Express JS
+        ->  Mongoose
+        -> Nodemon
+        -> Socket.IO
+        -> B-Crypt
+        -> Cors
+        -> DotENV
+
