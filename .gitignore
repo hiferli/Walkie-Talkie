@@ -22,8 +22,8 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-Public/walkie-talkie/package-lock.json
-Public/walkie-talkie/node_modules
+Public/package-lock.json
+Public/node_modules
 Server/node_modules
 Server/package-lock.json
 
