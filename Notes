@@ -18,3 +18,11 @@ Steps followed:
     -> Axios
     -> Styled-Components
     -> React-Router-Dom
+
+5. Changes are created in the React files, so that they can be used as boilerplate codes. Various Predefined Stylings are removed as well as unnessesary files are removed
+
+6. 3 Different Pages are created, which are as follows:
+    -> Register
+    -> Login
+    -> Chat
+   These 3 pages are going to form the base of our application
