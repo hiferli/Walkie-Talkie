@@ -26,3 +26,19 @@ Steps followed:
     -> Login
     -> Chat
    These 3 pages are going to form the base of our application
+
+7. We have used Google fonts to add customized styled fonts to out appllication. Alongside, we have also overwritten base CSS for ease of styling with out own styling.
+
+8. Assets of the application were added to the Assets folder. These assets are:
+    -> Loader GIF
+    -> Logo of the Application
+    -> Robot Animation
+
+9. A basic form was created for New User Registration. This includes creating a basic form which asks for the following information:
+    -> User Name
+    -> Email Address
+    -> Password
+    
+    Moreover, dummy functions were created for form submission and changes done during the form filling, which would be filled later
+
+10. We used the React Styled Components to add Styling to our Register Page
