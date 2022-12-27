@@ -14,6 +14,6 @@ body, button, input {
 /* vh represents the viewport-percentage length unit based on the browser default viewport size. */
 body {
     max-height: 100vh;
-    max-width: 100vh;
+    max-width: 100vw;
     overflow: hidden;
 }
