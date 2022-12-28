@@ -2,8 +2,18 @@ import React , { useState , useEffect } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import Logo from "../Assets/Logo.svg";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css"
 
 export default function Register() {
+  const toastStyling = {
+    position: "bottom-right",
+    autoClose: 5000,
+    pauseOnHover: true,
+    draggable: true,
+    theme: "dark",  
+  }
+
   const [values, setValues] = useState({
     userName: "",
     email: "",
@@ -13,8 +23,56 @@ export default function Register() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    alert("Form");
+    // alert("Form");
+    if(handleValidation()){
+      // Calling APIs
+    }
   };
+
+  const handleValidation = () => {
+    const {userName , email , password , confirmPassword} = values;
+    // Empty Values Validation
+    if(userName === ""){
+      toast.error("Please Enter A Valid Username",  toastStyling)
+      return false;
+    } else if(email === ""){
+      toast.error("Please Enter A Valid Email",  toastStyling)
+      return false;
+    } else if(password === ""){
+      toast.error("Please Enter A Valid Password",  toastStyling)
+      return false;
+    } else if(confirmPassword === ""){
+      toast.error("Please Enter Your Password Once Again",  toastStyling)
+      return false;
+    } 
+    
+    // Errors in Username and Password
+    if(password !== confirmPassword){
+      toast.error("Passwords must match",  toastStyling)
+      return false;
+    } else if(userName.length < 5){
+      toast.error("Username Should Be Atleast 6 Characters",  toastStyling)
+      return false;
+    } else if(password.length < 8){
+      toast.error("Password Should Have Atleast 8 Characters",  toastStyling)      
+      return false;
+    }
+    
+    // Strong Password Validation
+    if(password === confirmPassword){
+      let capitalLetters = password.length - password.replace(/[A-Z]/g, '').length;;
+      let smallLetters = password.length - password.replace(/[a-z]/g, '').length;;
+      let numbers = password.length - password.replace(/[0-9]/g, '').length;;
+      let specialCharacters = password.length - capitalLetters - smallLetters - numbers;
+      
+      if(specialCharacters < 1 || capitalLetters < 1 || smallLetters < 1 || numbers < 1){
+        toast.error("Password Must Contain Atleast 1 SmallCase Character, 1 UpperCase Character, 1 Numeric Character as well as 1 Special Character",  toastStyling)      
+        return false;
+      }
+    }
+
+    return true;
+  }
 
   const handleChange = (event) => {
     setValues({ ...values , [event.target.name]: event.target.value});
@@ -77,6 +135,7 @@ export default function Register() {
           </span>
         </form>
       </FormContainer>
+      <ToastContainer />
     </>
   );
 }
