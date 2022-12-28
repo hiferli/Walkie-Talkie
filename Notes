@@ -42,3 +42,17 @@ Steps followed:
     Moreover, dummy functions were created for form submission and changes done during the form filling, which would be filled later
 
 10. We used the React Styled Components to add Styling to our Register Page
+
+11. All the information added by the user is extracted using useState React Hook. This allows us the get the information of the user as soon as it is typed by the same. This is verified using the React Chrome Extension Tool as well.
+
+12. We creates a function which validates the information added in the registeration page. This includes the following checks:
+    -> UserName, Email Address, PassWord and ConfirmPassword are all non-empty elements
+    -> Password is not the same as Confirm Password
+    -> UserName length is not less than 5 characters
+    -> Password length is not less than 8 characters
+    -> Password follows the strong password practices (Password Must Contain Atleast 1 SmallCase Character, 1 UpperCase Character, 1 Numeric Character as well as 1 Special Character)
+
+    If any such check is voilated, the function returns a false. If not, then the function returns a true
+    Further, API calls are made only if the validation function return a true.
+
+    
