@@ -55,4 +55,5 @@ Steps followed:
     If any such check is voilated, the function returns a false. If not, then the function returns a true
     Further, API calls are made only if the validation function return a true.
 
+13. A JS file is created which contains all the API paths we're going to need in this project. These API routes are maintained as well as exported to the other files.
     
