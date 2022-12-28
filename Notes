@@ -56,4 +56,8 @@ Steps followed:
     Further, API calls are made only if the validation function return a true.
 
 13. A JS file is created which contains all the API paths we're going to need in this project. These API routes are maintained as well as exported to the other files.
+
+14. The handleValidation() function is created, which creates a POST request for the form to transfer the information to store the same in the database. We've used Axiom for performing validation, which  is a simple promise based HTTP client for the browser and node.js. Axios provides a simple to use library in a small package with a very extensible interface.
+
+
     

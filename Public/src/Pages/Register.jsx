@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 import Logo from "../Assets/Logo.svg";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css"
+import axios from 'axios'
+import { registerRoute } from "../Utilities/APIRoutes";
 
 export default function Register() {
   const toastStyling = {
@@ -21,11 +23,16 @@ export default function Register() {
     confirmPassword: "",
   })
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
     // alert("Form");
     if(handleValidation()){
-      // Calling APIs
+      const {userName , email , password , confirmPassword} = values;
+      const {data} = await axios.post(registerRoute , {
+        userName ,
+        email,
+        password
+      });
     }
   };
 
