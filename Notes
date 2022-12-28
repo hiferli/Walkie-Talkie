@@ -59,5 +59,13 @@ Steps followed:
 
 14. The handleValidation() function is created, which creates a POST request for the form to transfer the information to store the same in the database. We've used Axiom for performing validation, which  is a simple promise based HTTP client for the browser and node.js. Axios provides a simple to use library in a small package with a very extensible interface.
 
+15. A Database Schema is created for MongoDB Database. The database consists of the following entities:
+    -> Username
+    -> Email
+    -> Password
+    -> isAvatarImageSet
+    -> AvatarImage
+    The data entered in the database would be with respect to this schema created.
 
+16. We use Express JS to handle our Authentication APIs. The API thread is collected from the APIRoutes file, and further is sent to the specified route
     
