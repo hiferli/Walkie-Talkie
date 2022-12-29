@@ -18,6 +18,13 @@ export default function Register() {
     theme: "dark",  
   }
 
+  useEffect(() => {
+    if(localStorage.getItem("User")){
+      navigation("/");
+    }
+  }, [])
+  
+
   const [values, setValues] = useState({
     username: "",
     email: "",

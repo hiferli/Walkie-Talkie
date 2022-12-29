@@ -80,3 +80,5 @@ Steps followed:
 21. The Frontend for Login page is created inspired by the Registration Page. The parameters like Email Address as well as Confirm Password are removed along with their validation conditions. Further, the backend for login would be created inspired by the backend of the Registration page.
 
 22. Another Route is created for the Login Functionality in the application, which is redirected to the User Controller File, in which the credentials are first validated and later the user is logged in his account. 
+
+23. Information about already logged in users is extracted from the LocalStorage and if the user had previously logged in the system then they are redirected to the chat page directly. This is a common practice seen in Web-Applications like FaceBook, WhatsApp Web, Instagram and various others.
