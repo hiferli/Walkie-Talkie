@@ -41,3 +41,31 @@ module.exports.register = async (request, response, next) => {
         next(exeption);
     }
 }
+
+module.exports.login = async (request, response, next) => {
+    try {
+        // console.log(request.body);
+        const { username , password } = request.body;
+
+        // If the username already exists, it returns true and else it returns a false
+        const user = await User.findOne({ username });
+
+        if (!user) {
+            return response.json({ errorMessage: "Incorrct Username or Password...", status: false });
+        }
+        
+        // If the username is already registered, it returns true and else it returns a false
+        const isPasswordValid = await bcrypt.compare(password , user.password);
+        
+        if (!isPasswordValid) {
+            return response.json({ errorMessage: "Incorrct Username or Password...", status: false });
+        }
+        delete user.password;
+        
+
+        // Returning a success flag, marking registered users
+        return response.json({ status: true, user });
+    } catch (exeption) {
+        next(exeption);
+    }
+}
