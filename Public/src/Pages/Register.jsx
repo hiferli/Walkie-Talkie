@@ -1,6 +1,6 @@
 import React , { useState , useEffect } from "react";
 import styled from "styled-components";
-import { Link } from "react-router-dom";
+import { json, Link, useNavigate } from "react-router-dom";
 import Logo from "../Assets/Logo.svg";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css"
@@ -8,6 +8,8 @@ import axios from 'axios'
 import { registerRoute } from "../Utilities/APIRoutes";
 
 export default function Register() {
+  const navigation = useNavigate();
+
   const toastStyling = {
     position: "bottom-right",
     autoClose: 5000,
@@ -17,7 +19,7 @@ export default function Register() {
   }
 
   const [values, setValues] = useState({
-    userName: "",
+    username: "",
     email: "",
     password: "",
     confirmPassword: "",
@@ -27,19 +29,33 @@ export default function Register() {
     event.preventDefault();
     // alert("Form");
     if(handleValidation()){
-      const {userName , email , password , confirmPassword} = values;
-      const {data} = await axios.post(registerRoute , {
-        userName ,
+      const {username , email , password , confirmPassword} = values;
+      const { data } = await axios.post(registerRoute , {
+        username ,
         email,
         password
       });
+      
+      if(data.status === false){
+        toast.error(data.errorMessage , toastStyling)
+      }
+
+    if(data.status === true){
+      // Adding User Details to Local Storage
+      localStorage.setItem('User', JSON.stringify(data.user));
+      navigation("/")
     }
+  }
+    
   };
 
   const handleValidation = () => {
-    const {userName , email , password , confirmPassword} = values;
+    const {username , email , password , confirmPassword} = values;
     // Empty Values Validation
-    if(userName === ""){
+    // console.log(`${username}`)
+    // console.log(`${email}`)
+
+    if(username === ""){
       toast.error("Please Enter A Valid Username",  toastStyling)
       return false;
     } else if(email === ""){
@@ -57,7 +73,7 @@ export default function Register() {
     if(password !== confirmPassword){
       toast.error("Passwords must match",  toastStyling)
       return false;
-    } else if(userName.length < 5){
+    } else if(username.length < 5){
       toast.error("Username Should Be Atleast 6 Characters",  toastStyling)
       return false;
     } else if(password.length < 8){
@@ -77,6 +93,7 @@ export default function Register() {
         return false;
       }
     }
+
 
     return true;
   }
@@ -100,9 +117,9 @@ export default function Register() {
 
           <input
             type="text"
-            name="userName"
-            id="userName"
-            placeholder="UserName"
+            name="username"
+            id="username"
+            placeholder="Username"
             onChange={(event) => {
               handleChange(event);
             }}

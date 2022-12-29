@@ -73,4 +73,6 @@ Steps followed:
 
 18. Small changes are made in the Schema of the database as well as the version of React-Toastify is changed to a previous version to avoid the useReducer problem.
 
-19. The useController functionality is created, which registers the user into the MongoDB database. Before registering, it checks whether the username or the password is registered with the database or not. If not so, the data entered by the users is registered in the database. 
+19. The useController functionality is created, which registers the user into the MongoDB database. Before registering, it checks whether the username or the password is registered with the database or not. If not so, the data entered by the users is registered in the database. A status flag of `true` is sent if the user is registered successfuly and a `false` if there were errors while registering the user.
+
+20. The final changes to the Register Page is done. The status flag sent while registration decides the further steps. If the user is successfully registered, it is further sent to the Chat page. If not, an error toast describing the error is shown on the page. 
