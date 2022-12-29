@@ -70,3 +70,7 @@ Steps followed:
 16. We use Express JS to handle our Authentication APIs. The API thread is collected from the APIRoutes file, and further is sent to the specified route
     
 17. Finally, we perform the POST request on ExpressJS in the UserRoutes file and further the data is inserted in the MongoDB database using the UserController file.
+
+18. Small changes are made in the Schema of the database as well as the version of React-Toastify is changed to a previous version to avoid the useReducer problem.
+
+19. The useController functionality is created, which registers the user into the MongoDB database. Before registering, it checks whether the username or the password is registered with the database or not. If not so, the data entered by the users is registered in the database. 
