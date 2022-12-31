@@ -30,6 +30,17 @@ export default function SetAvatar() {
     theme: "dark",
   };
 
+  const navigation = useNavigate();
+  useEffect(() => {
+	(async () => {
+		if(!localStorage.getItem("User")){
+			navigation("/login");
+		  }
+	})();
+  
+  }, [])
+  
+
   const setProfilePicture = async () => {
     // console.log(setAvatars);
     if (selectedAvatar === undefined) {
@@ -44,7 +55,7 @@ export default function SetAvatar() {
         user.isAvatarImageSet = true;
         user.avatarImage = data.image;
         localStorage.setItem("User", JSON.stringify(user));
-        navigator("/");
+        navigation("/");
       } else {
 		toast.error("Error Setting Up Your Avatar... Please Try Again" , toastStyling);
 	  }

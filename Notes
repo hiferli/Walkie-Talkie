@@ -96,3 +96,5 @@ Steps followed:
 29. Using the Ternary Operator, we added the method for page loading until the APIs are not loaded with the Avatars. Also, the feature of adding Toast when none of the avatars is selected is also added in the selectedAvatar functions
 
 30. The backend for the SetProfilePicture is created, in which first the route for node has been made and lateron the MongoDB Database is updated with the selected avatar and the flag for the avatar is changed to true.
+
+31. A final functionality is added to avoid redundant users. If a user is not logged in and tries to change their avatar using URLs, then they are redirected to the login page. Moreover, some bugs in the ExpressJS Routing is fixed
