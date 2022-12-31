@@ -28,7 +28,32 @@ export default function SetAvatar() {
     draggable: true,
     theme: "dark",
   };
-  
+
+  const setProfilePicture = async () => {};
+
+  useEffect(() => {
+    (async () => {
+      const data = [];
+
+      for (let index = 0; index < 4; index++) {
+        // Create a Random Number and makes the API call with the random number and hance get a random image
+        const image = await axios.get(
+          `${API}/${Math.round(Math.random() * 1000)}`
+        );
+
+        const buffer = new Buffer (image.data);
+        data.push(buffer.toString("base64"));
+      }
+
+      setAvatars(data);
+      setIsLoading(false);
+    })();
+
+    return () => {
+      // this now gets called when the component unmounts
+    };
+  }, []);
+
   return (
     <>
       <Container>
