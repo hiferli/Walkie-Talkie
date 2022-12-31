@@ -88,3 +88,6 @@ Steps followed:
 25. The boilerplate code for SetAvatar is created which contains useState Hooks for changing, modifying and creating avatars, which would be taken from the Multiavatar API online.
 
 26. Function is created to set up a new Avatar for the user, which generates random avatars for the users by passing random integers as parameters for random avatar generation. 
+
+27. Frontend to show the created avatar is created, which displays the 4 generated avatar and let the user choose the avatar which they like to.
+

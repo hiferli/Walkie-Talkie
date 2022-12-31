@@ -6,6 +6,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
 import { setAvatarRoute } from "../Utilities/APIRoutes";
+import { Buffer } from "buffer";
 
 export default function SetAvatar() {
   // This is an Open Source API which would give us random avatars when random numbers are sent as a parameter
@@ -18,7 +19,7 @@ export default function SetAvatar() {
   const [isLoading, setIsLoading] = useState(true);
 
   // Checking for the selected Avatars
-  const [selectedAvatars, setSelectedAvatars] = useState(undefined);
+  const [selectedAvatar, setSelectedAvatar] = useState(undefined);
 
   // Toast Styling... Same as which we used before
   const toastStyling = {
@@ -60,7 +61,24 @@ export default function SetAvatar() {
         <div className="title-container">
           <h1>Pick Up An Avatar</h1>
         </div>
-        <div className="avatars"></div>
+        <div className="avatars">
+            {avatars.map((avatar, index) => {
+              return (
+                <div
+                  className={`avatar ${
+                    selectedAvatar === index ? "selected" : ""
+                  }`}
+                >
+                  <img
+                    src={`data:image/svg+xml;base64,${avatar}`}
+                    alt="avatar"
+                    key={avatar}
+                    onClick={() => setSelectedAvatar(index)}
+                  />
+                </div>
+              );
+            })}
+          </div>
       </Container>
       <ToastContainer />
     </>
