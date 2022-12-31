@@ -49,7 +49,7 @@ module.exports.login = async (request, response, next) => {
 
         // If the username already exists, it returns true and else it returns a false
         const user = await User.findOne({ username });
-
+        
         if (!user) {
             return response.json({ errorMessage: "Incorrct Username or Password...", status: false });
         }
@@ -62,10 +62,28 @@ module.exports.login = async (request, response, next) => {
         }
         delete user.password;
         
-
+        
         // Returning a success flag, marking registered users
         return response.json({ status: true, user });
     } catch (exeption) {
         next(exeption);
+    }
+}
+
+module.exports.setAvatar = async (request, response, next) => {
+    try {
+        const userID = request.params.id;
+        const avatarImage = request.body.image
+        const userData = await User.findByIdAndUpdate(userID , {
+            isAvatarImageSet: true,
+            avatarImage: avatarImage
+        })
+
+        return response.json({
+            isSet: userData.isAvatarImageSet,
+            image: userData.avatarImage
+        })
+    } catch (exeption) {
+        next(exeption)
     }
 }
