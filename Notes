@@ -91,3 +91,4 @@ Steps followed:
 
 27. Frontend to show the created avatar is created, which displays the 4 generated avatar and let the user choose the avatar which they like to.
 
+28. Styling is added the the whole page where the user is given the option to set their avatars from the total of 4 avatars created randomly. This is done using the styled components react libarary.
