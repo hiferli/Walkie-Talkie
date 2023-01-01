@@ -126,3 +126,5 @@ Only a certian amount of information is fetched from the database since the pass
 41. The Selected User is passed as a parameter to the Contacts Componenet and thereafter the selected Contact is highlighted and the chat with that contact would be opened (To be done in the future... Using SocketIO)
 
 42. A Welcome Screen is Created, which would be visible when no user is selected. This is done by making another Component in the Chat file and passing the currentUser as a parameter to the same. 
+
+43. The Welcome Component is created with the GIF file as well as the username. Moreover, styled components is added to the smae
