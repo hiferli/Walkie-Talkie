@@ -116,3 +116,5 @@ Only a certian amount of information is fetched from the database since the pass
 36. The user is checked and thereafter is added to the page. This is done by checking the data of the user. If they have an avatar, theyre set as current user and if not then they're redirected to the setAvatar Page
 
 37. In the contacts page, we're first checking the current user status. If we have the current user logged in, the profile image as well as the username is visible. This is done using the combination of useEffect and useState hooks. 
+
+38. Using the useState and useEffect Hooks as well as using AND check conditioning, we obtain the user information from the backend and thereafter extract that information to show it on the contacts panel on the chat page. 
