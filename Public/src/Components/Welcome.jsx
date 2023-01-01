@@ -6,7 +6,7 @@ export default function Welcome({ currentUser }) {
   return (
     <Container>
       <img src={Robot} alt="Welcome Robot" />
-      {/* <h1>Welcome! <span>{currentUser}</span> </h1> */}
+      <h1>Welcome! <span>{currentUser.username}</span> </h1>
       <h3>Start A Conversation By Selecting Fron The Panel Besides!</h3>
     </Container>
   );

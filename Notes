@@ -128,3 +128,5 @@ Only a certian amount of information is fetched from the database since the pass
 42. A Welcome Screen is Created, which would be visible when no user is selected. This is done by making another Component in the Chat file and passing the currentUser as a parameter to the same. 
 
 43. The Welcome Component is created with the GIF file as well as the username. Moreover, styled components is added to the smae
+
+44. The fuctionality to switch between the Welcome Component and the Chat Component is created by making another comonent for the Chat Page and using the Ternary Operator to switch between the 2

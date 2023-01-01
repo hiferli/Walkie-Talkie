@@ -5,12 +5,14 @@ import { json, useNavigate } from "react-router-dom";
 import { allUsersRoute } from "../Utilities/APIRoutes";
 import Contacts  from '../Components/Contacts'
 import Welcome from "../Components/Welcome";
+import ChatContainer from "../Components/ChatContainer";
 
 export default function Chat() {
 	const [contacts, setContacts] = useState([]);
 	const [currentUser, setCurrentUser] = useState(undefined);
 
 	const [currentChat, setCurrentChat] = useState(undefined)
+	const [isLoaded, setIsLoaded] = useState(false)
 
 	const navigation = useNavigate();
 	// Getting the Currently Logged In User Information
@@ -22,6 +24,7 @@ export default function Chat() {
 			} else {
 				// If the user is logged in, then the user is set to the user data in the localstorage
 				setCurrentUser(await JSON.parse(localStorage.getItem("User")));
+				setIsLoaded(true)
 			}
 		})();
 	  }, [])
@@ -50,7 +53,11 @@ export default function Chat() {
 		<Container>
 			<div className="container">
 				<Contacts contacts = {contacts} currentUser = {currentUser}  changeChat = {handleChatChange} />
+				{isLoaded && currentChat === undefined ? (
 				<Welcome currentUser = {currentUser}/>
+				) : (
+				<ChatContainer currentUser = {currentUser} />
+				)}
 			</div>
 		</Container>
 	);
