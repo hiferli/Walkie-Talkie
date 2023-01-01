@@ -39,7 +39,7 @@ export default function Chat() {
 				}
 			}
 		})();
-	  }, [])
+	  }, [currentUser])
 
 	  const handleChatChange = (chat) => {
 		setCurrentChat(chat)
