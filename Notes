@@ -122,3 +122,5 @@ Only a certian amount of information is fetched from the database since the pass
 39. Similar to what we did before, we added the styling to our Contacts Components using Styled Components
 
 40. The Selected User is passed from the Chat Component to the Contacts Component and hence is highlighted when selected. Moreover, a minor bug is fixed which hindered the occurence of other users on any chat window
+
+41. The Selected User is passed as a parameter to the Contacts Componenet and thereafter the selected Contact is highlighted and the chat with that contact would be opened (To be done in the future... Using SocketIO)
