@@ -102,3 +102,11 @@ Steps followed:
 32. Finally, the Chat Component is being created. Styling is added the component initially using the Styled-Components Library in React
 
 33. Firstly, we create a way to get contacts on our chat page. For this, we create an API to get the informaion from the MongoDB Database and thereafter load them into the frontend using the "Components.jsx" file created.
+
+34. The Backend for the Contact list is created, in which we get all the IDs of the users exept from the current user (All but not me) and thereafter the following information is gathered about those IDs:
+    -> ID
+    -> Email Address
+    -> Avatar Image
+    -> Username
+
+Only a certian amount of information is fetched from the database since the passwords are also stored in the fields of the database. Finally, all this information is sent to the Frontend part (Contacts.jsx) via this API.

@@ -78,12 +78,32 @@ module.exports.setAvatar = async (request, response, next) => {
             isAvatarImageSet: true,
             avatarImage: avatarImage
         })
-
+        
         return response.json({
             isSet: userData.isAvatarImageSet,
             image: userData.avatarImage
         })
     } catch (exeption) {
         next(exeption)
+    }
+}
+
+module.exports.getAllUsers = async (request, response, next) => {
+    try {
+        // This line gets information from the MongoDB Database.
+        // The _id : { $ne: request.params.id } line returns all the other users with ID not equal to the ID of the user
+
+        const users = await User.find({ _id : { $ne: request.params.id }}).select([
+            // From the information fetched from the Database, only the following information is extracted
+            // To display on the Contacts Segment in the Chat Page
+            "email",
+            "username",
+            "avatarImage",
+            "_id"
+        ])
+
+        return response.json(users);
+    } catch (exeption) {
+        next(exeption);
     }
 }
