@@ -100,3 +100,5 @@ Steps followed:
 31. A final functionality is added to avoid redundant users. If a user is not logged in and tries to change their avatar using URLs, then they are redirected to the login page. Moreover, some bugs in the ExpressJS Routing is fixed
 
 32. Finally, the Chat Component is being created. Styling is added the component initially using the Styled-Components Library in React
+
+33. Firstly, we create a way to get contacts on our chat page. For this, we create an API to get the informaion from the MongoDB Database and thereafter load them into the frontend using the "Components.jsx" file created.
