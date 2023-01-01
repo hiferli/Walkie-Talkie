@@ -112,3 +112,5 @@ Steps followed:
 Only a certian amount of information is fetched from the database since the passwords are also stored in the fields of the database. Finally, all this information is sent to the Frontend part (Contacts.jsx) via this API.
 
 35. Firstly, the base condition of the user logged in is checked. If the user is logged in (LocalStorage has Logged In data) then the user's information is used to login the chat page. Else the user is redirected to the login page.
+
+36. The user is checked and thereafter is added to the page. This is done by checking the data of the user. If they have an avatar, theyre set as current user and if not then they're redirected to the setAvatar Page

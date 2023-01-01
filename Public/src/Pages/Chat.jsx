@@ -2,6 +2,7 @@ import React , { useState , useEffect } from "react";
 import styled from "styled-components";
 import axios from 'axios'
 import { json, useNavigate } from "react-router-dom";
+import { allUsersRoute } from "../Utilities/APIRoutes";
 
 export default function Chat() {
 	const [contacts, setContacts] = useState([]);
@@ -23,7 +24,17 @@ export default function Chat() {
 
 	useEffect(() => {
 		(async () => {
-			
+			if(currentUser){
+				// If the user has an Avatar
+				if(currentUser.isAvatarImageSet){
+					// Gets the data for the user.
+					const data = await axios.get(`${allUsersRoute}/${currentUser._id}`)
+					setContacts(data.data)
+				} else {
+					// If not, then  they're landed to the setAvatar Page
+					navigation('/setAvatar')
+				}
+			}
 		})();
 	  }, [])
 
