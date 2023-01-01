@@ -133,4 +133,6 @@ Only a certian amount of information is fetched from the database since the pass
 
 45. The Chat Container is Created, which would take the current chat as a parameter and would display the chats between the user and the other person. We used the same ternary operator check to check whether there exists a chat or not.
 
-46. Now, we're working on the Logout button, so that a user can log out from the chat. 
+46. Now, we're working on the Logout button, so that a user can log out from the chat. The functionality to Logout is as follows:
+    -> Clear the LocalStorage
+    -> Navigate back to /login Page
