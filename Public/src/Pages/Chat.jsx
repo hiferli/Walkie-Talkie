@@ -3,6 +3,7 @@ import styled from "styled-components";
 import axios from 'axios'
 import { json, useNavigate } from "react-router-dom";
 import { allUsersRoute } from "../Utilities/APIRoutes";
+import Contacts  from '../Components/Contacts'
 
 export default function Chat() {
 	const [contacts, setContacts] = useState([]);
@@ -40,7 +41,9 @@ export default function Chat() {
 
 	return (
 		<Container>
-			<div className="container"></div>
+			<div className="container">
+				<Contacts contacts = {contacts} currentUser = {currentUser} />
+			</div>
 		</Container>
 	);
 }
