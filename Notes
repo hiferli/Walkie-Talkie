@@ -132,3 +132,5 @@ Only a certian amount of information is fetched from the database since the pass
 44. The fuctionality to switch between the Welcome Component and the Chat Component is created by making another comonent for the Chat Page and using the Ternary Operator to switch between the 2
 
 45. The Chat Container is Created, which would take the current chat as a parameter and would display the chats between the user and the other person. We used the same ternary operator check to check whether there exists a chat or not.
+
+46. Now, we're working on the Logout button, so that a user can log out from the chat. 
