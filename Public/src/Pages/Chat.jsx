@@ -1,12 +1,37 @@
-import React from "react";
+import React , { useState , useEffect } from "react";
 import styled from "styled-components";
+import axios from 'axios'
+import { json, useNavigate } from "react-router-dom";
 
 export default function Chat() {
-  return (
-    <Container>
-      <div className="container"></div>
-    </Container>
-  );
+	const [contacts, setContacts] = useState([]);
+	const [currentUser, setCurrentUser] = useState(undefined);
+
+	const navigation = useNavigate();
+	// Getting the Currently Logged In User Information
+	useEffect(() => {
+		(async () => {
+			if(!localStorage.getItem("User")){
+				// If user is not logged in, then they're redirected to login page
+				navigation("/login");
+			} else {
+				// If the user is logged in, then the user is set to the user data in the localstorage
+				setCurrentUser(await JSON.parse(localStorage.getItem("User")));
+			}
+		})();
+	  }, [])
+
+	useEffect(() => {
+		(async () => {
+			
+		})();
+	  }, [])
+
+	return (
+		<Container>
+			<div className="container"></div>
+		</Container>
+	);
 }
 
 const Container = styled.div`
