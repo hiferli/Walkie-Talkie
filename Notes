@@ -136,3 +136,7 @@ Only a certian amount of information is fetched from the database since the pass
 46. Now, we're working on the Logout button, so that a user can log out from the chat. The functionality to Logout is as follows:
     -> Clear the LocalStorage
     -> Navigate back to /login Page
+
+47. Now, the Chat Input Segment is created, which would display the text which is written by the user and would also contain the segment to send the message to the user whom the current user is texting to. The written message is sent from the chat container to the chat input segment.
+
+48. 
