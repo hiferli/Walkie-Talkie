@@ -6,7 +6,7 @@ import Messages from './Messages'
 
 export default function ChatContainer({ currentChat }) {
   const handleSendMessage = async () => {
-
+      alert("Submitted")
   };
 
   return (
