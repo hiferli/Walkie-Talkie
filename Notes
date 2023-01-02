@@ -142,3 +142,7 @@ Only a certian amount of information is fetched from the database since the pass
 48. The Chat Input Segment is added with Emoji Selector and a Send Message Button using the React Emoji Picker Library. 
 
 49. A Message Component is created in the Chat Component Section of the Chat Page, which would render all the text messages from the Database and would display it as a conversation.
+
+50. Emoji adding functionality is added to the Chat Input Box. The steps followed are as follows:
+    -> The Emoji Panel is hidden and views when clicked and unclicked respectively, using useStates
+    -> The Emojis are added to the Typed Text Messages, by extracting the message.. Adding Emojis to them as well as replacing the message with the current message, all thanks to useState 
