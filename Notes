@@ -139,4 +139,4 @@ Only a certian amount of information is fetched from the database since the pass
 
 47. Now, the Chat Input Segment is created, which would display the text which is written by the user and would also contain the segment to send the message to the user whom the current user is texting to. The written message is sent from the chat container to the chat input segment.
 
-48. 
+48. The Chat Input Segment is added with Emoji Selector and a Send Message Button using the React Emoji Picker Library. 
