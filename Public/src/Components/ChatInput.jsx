@@ -6,16 +6,38 @@ import { IoMdSend } from "react-icons/io";
 import { BsEmojiSmileFill  } from "react-icons/bs";
 
 export default function ChatInput(handleSendMessage) {
+  // Use State to show the Emoji Picker when clicked
+  const [showEmojiPicker, setShowEmojiPicker] = useState(false)
+
+  // Use State for adding the Emoji to the written text messages
+  const [currentMessage, setMessage] = useState("")
+
+  const handleEmojiPickerDisplayState = () => {
+    // If the Emoji Picker is visible, hide it 
+    // And vice versa
+    setShowEmojiPicker(!showEmojiPicker);
+  }
+
+  const handleEmojiClick = (event , emoji) => {
+    // Takes the current message
+    // Adds the selected emoji to the same
+    // Sets the emoji-added message as the currentMessage
+    let message = currentMessage;
+    message += emoji.emoji;
+    setMessage(message);
+  }
+
   return (
     <Container>
       <div className="button-container">
         <div className="emoji">
-          <BsEmojiSmileFill />
+          <BsEmojiSmileFill onClick={handleEmojiPickerDisplayState}/>
+          {showEmojiPicker && <Picker onEmojiClick={handleEmojiClick}/>}
         </div>
       </div>
 
       <form className='input-container'>
-        <input type="text" placeholder='Type Your Message Here...' />
+        <input type="text" placeholder='Type Your Message Here...' value={currentMessage} onChange = {(event) => setMessage(event.target.value)}/>
         <button className="submit">
           <IoMdSend />
         </button>
