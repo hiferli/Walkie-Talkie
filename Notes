@@ -154,3 +154,5 @@ Only a certian amount of information is fetched from the database since the pass
     -> Users in the Chat
     -> Sender Information
     -> TimeStamp
+
+53. The backend of the messages are being worked upon right now, in which first the routes are made similar to what were made for the Users. Main API route is made in the Index.js file and the message routes are stored in the MessageRoute.js files. The rest of the CRUD action would take place in the MessageController.js file
