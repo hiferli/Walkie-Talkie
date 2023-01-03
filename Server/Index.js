@@ -35,3 +35,28 @@ const io = socket(server , {
         credentials: true,
     }
 })
+
+// Creating a NodeJS Global Online Object
+// Stores all the online users.
+global.onlineUsers = new Map();
+
+io.on("connection" , (socket) => {
+    global.chatSocket = socket;
+
+    // Establishes a socket connection with the online users to the Global Online Users Object
+    socket.on("add-user" , (userID => {
+        onlineUsers.set(userID , socket.id);
+    }))
+
+    // Handles the message sending functionality
+    socket.on("send-message" , (data) => {
+        // This is the information about the online user's ID
+        const sendUserSocket = onlineUsers.get(data.to);
+
+        // When the user is online, send the message directly as well as store in the database
+        // If not, then just store it in the database.
+        if(sendUserSocket){
+            socket.to(sendUserSocket).emit("message-recieve" , data.message)
+        }
+    })
+})
