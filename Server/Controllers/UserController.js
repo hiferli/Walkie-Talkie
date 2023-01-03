@@ -23,9 +23,9 @@ module.exports.register = async (request, response, next) => {
         // Secure the password with an Encryption, with Salt Value as 10
         const encryptedPassword = await bcrypt.hash(password, 10);
 
-        console.log(username)
-        console.log(email)
-        console.log(password)
+        // console.log(username)
+        // console.log(email)
+        // console.log(password)
 
         // Registering the user to the database
         const user = await User.create({

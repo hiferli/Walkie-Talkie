@@ -54,9 +54,9 @@ export default function ChatContainer({ currentChat , currentUser , socket }) {
     if(socket.current){
       socket.current.on("message-recieve" , (msg) => {
         // Recieved message
-        console.log(msg);
+        // console.log(msg);
         setArrivalMessage({fromSelf: false, message: msg});
-        console.log(arrivalMessage);
+        // console.log(arrivalMessage);
       })
     }
   }, [])
