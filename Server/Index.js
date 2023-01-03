@@ -44,9 +44,9 @@ io.on("connection" , (socket) => {
     global.chatSocket = socket;
 
     // Establishes a socket connection with the online users to the Global Online Users Object
-    socket.on("add-user" , (userID => {
+    socket.on("add-user" , (userID) => {
         onlineUsers.set(userID , socket.id);
-    }))
+    })
 
     // Handles the message sending functionality
     socket.on("send-message" , (data) => {
