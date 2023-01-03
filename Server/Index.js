@@ -4,6 +4,8 @@ const mongoose = require("mongoose")
 const userRoutes = require("./Routes/UserRoutes")
 const messagesRoute = require("./Routes/MessagesRoute")
 
+const socket = require("socket.io");
+
 const app = express()
 require("dotenv").config
 
@@ -25,4 +27,11 @@ mongoose.connect(process.env.MONGO_URL , {
 
 const server = app.listen(process.env.PORT, () => {
     console.log("Server Started on PORT: " + process.env.PORT);
+})
+
+const io = socket(server , {
+    cors: {
+        origin: "http://localhost:3000",
+        credentials: true,
+    }
 })
