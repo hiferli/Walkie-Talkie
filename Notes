@@ -184,3 +184,5 @@ Only a certian amount of information is fetched from the database since the pass
 63. Using the useEffect hooks, we are able to send message via Socket.io as well as concatenate the new message to the Array of older messages.
 
 64. A common error in DOM rendering with information is that every DOM added by mapping should have atleast one unique key in it, else it is treated as an error/warning. To control this, we've added random keys to these HTML elements, using a UUID dependancies. This adds random key to the DOM elements rendered.
+
+65. The Application had the issue of handling new messages sent. It was a small typographical error which is now resolved!

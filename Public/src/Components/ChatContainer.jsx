@@ -20,7 +20,7 @@ export default function ChatContainer({ currentChat , currentUser , socket }) {
         to: currentChat._id,
       })
       
-      console.log(currentUser._id);
+      // console.log(currentUser._id);
       setMessages(response.data)
     }
 
@@ -46,6 +46,7 @@ export default function ChatContainer({ currentChat , currentUser , socket }) {
       // Check lines below
       const msgs = [...messages];
       msgs.push({fromSelf: true, message: msg})
+      // console.log(msgs);
       setMessages(msgs);
   };
 
@@ -53,7 +54,9 @@ export default function ChatContainer({ currentChat , currentUser , socket }) {
     if(socket.current){
       socket.current.on("message-recieve" , (msg) => {
         // Recieved message
-        setArrivalMessage({fromSelf: false, messages: msg});
+        console.log(msg);
+        setArrivalMessage({fromSelf: false, message: msg});
+        console.log(arrivalMessage);
       })
     }
   }, [])
