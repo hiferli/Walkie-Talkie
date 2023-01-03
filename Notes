@@ -176,3 +176,5 @@ Only a certian amount of information is fetched from the database since the pass
 60. After installing SocketIO, we use Online Users Object, which holds the information of all the online users. Further to this, the further is verified:
     -> If the user is online, then add them to the Global Online User's Object
     -> If the user is online and a message is sent to them, ping the message on their screens as well as add the message to the database as well. If offline, just push the message to the database only.
+
+61. Further, we use SocketIO in the client side by installing another dependancey for the same. We set the Online Users in the Chat Page, when there is a user online at Walkie Talkie, with the help of a combinaton of useRef and useEffect Hook. And for the messages, the socket is sent as a prop to the Chat Container.
