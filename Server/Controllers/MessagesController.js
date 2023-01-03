@@ -24,4 +24,29 @@ module.exports.addMessage = async (request, response, next) => {
     }
 }
 
-module.exports.getAllMessages = async (request, response, next) => {}
+module.exports.getAllMessages = async (request, response, next) => {
+    try {
+        const { from , to } = await request.body;
+        const messages = await messageModel.find({
+            // Get all messages sent from 'from' user to 'to' user.
+            users: {
+                $all: [from , to],
+            }
+            // updateAt: 1 is updating in Ascending Order
+        }).sort({updateAt: 1})
+
+        const projectMessages = messages.map((msg) => {
+            // Copied Lines:
+            return {
+                fromSelf: msg.sender.toString() === from,
+                message: msg.message.text
+            }
+        });
+
+
+        return response.json(projectMessages);
+        
+    } catch (exeption) {
+        next(exeption);
+    }
+}

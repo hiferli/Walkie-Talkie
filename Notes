@@ -162,3 +162,5 @@ Only a certian amount of information is fetched from the database since the pass
 55. An API is made for collecting the message from the frontend and thereafter adding the same message in the Database. This API would be called while the user sends a message to the other Walkie Talkie users.
 
 55. After the functionality is created, now the messages are to be extracted from the frontend and are to be added to the MongoDB Database. This is done by completing the handleSendMessage function, which we left incompleted while making the Chat Container Component. This function calls the API made (Described above) with the help of Axios and makes a POST request regarding the message, and thereafter adding the message to the database  
+
+56. The GetAllMessage functionality is constructed, which fetches all the messages between the 2 users from the database and sort them in the ascending order (With respect to time), maps all these messages and return that as a JSON. This would further be iterated to display on the frontend.
