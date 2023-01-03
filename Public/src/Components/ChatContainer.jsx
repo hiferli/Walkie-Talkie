@@ -28,24 +28,24 @@ export default function ChatContainer({ currentChat , currentUser , socket }) {
   }, [currentChat])
   
   
-  const handleSendMessage = async (message) => {
+  const handleSendMessage = async (msg) => {
       // alert("Submitted")
       await axios.post(sendMessageRoute , {
         from: currentUser._id,
         to: currentChat._id,
-        message: message
+        message: msg
       })
 
       socket.current.emit("send-message" , {
         to: currentChat._id,
         from: currentUser._id,
         // Check line below
-        message: message
+        message: msg
       })
       
       // Check lines below
-      const msgs = [...message];
-      msgs.push({fromSelf: true, message: message})
+      const msgs = [...messages];
+      msgs.push({fromSelf: true, message: msg})
       setMessages(msgs);
   };
 
