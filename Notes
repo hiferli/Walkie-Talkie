@@ -180,3 +180,5 @@ Only a certian amount of information is fetched from the database since the pass
 61. Further, we use SocketIO in the client side by installing another dependancey for the same. We set the Online Users in the Chat Page, when there is a user online at Walkie Talkie, with the help of a combinaton of useRef and useEffect Hook. And for the messages, the socket is sent as a prop to the Chat Container.
 
 62. Now for using SocketIO, when we used to send our messages to the backend database, now we also use SocketIO send-message which emits the current message to the user's chat segment. 
+
+63. Using the useEffect hooks, we are able to send message via Socket.io as well as concatenate the new message to the Array of older messages.
