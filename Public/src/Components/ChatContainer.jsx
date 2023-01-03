@@ -5,6 +5,7 @@ import ChatInput from './ChatInput'
 import Messages from './Messages'
 import axios from "axios";
 import { getAllMessages, sendMessageRoute } from "../Utilities/APIRoutes";
+import {v4 as uuidv4} from 'uuid'
 
 export default function ChatContainer({ currentChat , currentUser , socket }) {
   const [messages, setMessages] = useState([])
@@ -61,9 +62,9 @@ export default function ChatContainer({ currentChat , currentUser , socket }) {
     arrivalMessage && setMessages((previousMessages) => [...previousMessages , arrivalMessage])
   }, [arrivalMessage])
   
-  // useEffect(() => {
-  //   scrollRef.current?.scrollIntoView({behaviour: "smooth"});
-  // }, [messages])
+  useEffect(() => {
+    scrollRef.current?.scrollIntoView({behaviour: "smooth"});
+  }, [messages])
   
 
   return (
@@ -91,7 +92,7 @@ export default function ChatContainer({ currentChat , currentUser , socket }) {
             {
               messages.map((message) => {
                 return (
-                  <div>
+                  <div ref = {scrollRef} key = {uuidv4()}>
                     <div className={`message ${message.fromSelf ? "sended" : "recieved"}`}>
                       <div className="content">
                         <p>
