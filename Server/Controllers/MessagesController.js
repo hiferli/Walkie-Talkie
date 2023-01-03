@@ -3,7 +3,7 @@ const messageModel = require("../Models/MessageModel")
 module.exports.addMessage = async (request, response, next) => {
     try {
         // Getting Message Information
-        const { from , to , body } = request.body;
+        const { from , to , message } = request.body;
 
         // Creating the Mongo Collection to push in the Database
         const data = await messageModel.create({
