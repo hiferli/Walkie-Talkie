@@ -166,3 +166,7 @@ Only a certian amount of information is fetched from the database since the pass
 56. The GetAllMessage functionality is constructed, which fetches all the messages between the 2 users from the database and sort them in the ascending order (With respect to time), maps all these messages and return that as a JSON. This would further be iterated to display on the frontend.
 
 57. An API Route is created for getting all the messages/conversations between 2 users from the MongoDB Database. 
+
+58. Finally, the conversation is made visible between the users by modifying the frontend of the application. We do the following 2 procedures while working with ChatContainer:
+    -> Firstly, we undergo a POST request, which sends the sent message to the Database, while containing the information about the sender and the reciever of the message and thereafter change the list of messages we have in the conversation. This is done by using the useEffect and useState hooks in React respectively.  
+    -> Secondly, as the new messages are loaded as soon as they are updated in the database, we map them in our DOM as well. This is done by mapping the messages, extracting the messages as well as putting it in the HTML Elements.

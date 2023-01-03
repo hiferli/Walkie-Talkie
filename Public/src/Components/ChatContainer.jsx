@@ -53,7 +53,24 @@ export default function ChatContainer({ currentChat , currentUser }) {
 
           </div>
 
-          <Messages />
+          <div className="chat-messages">
+            {
+              messages.map((message) => {
+                return (
+                  <div>
+                    <div className={`message ${message.fromSelf ? "sended" : "recieved"}`}>
+                      <div className="content">
+                        <p>
+                            {message.message}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                )
+              })
+            }
+          </div>
+
           <ChatInput handleSendMessage = {handleSendMessage}></ChatInput>
         </Container>
       )}
