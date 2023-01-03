@@ -156,3 +156,5 @@ Only a certian amount of information is fetched from the database since the pass
     -> TimeStamp
 
 53. The backend of the messages are being worked upon right now, in which first the routes are made similar to what were made for the Users. Main API route is made in the Index.js file and the message routes are stored in the MessageRoute.js files. The rest of the CRUD action would take place in the MessageController.js file
+
+54. The Add Message functionality is worked upon, in which the message sent/revcieved by the user is converted to a JSON similar to the message schema and thereafter added to the MongoDB Database. A JSON is finally returned in either of the cases, which tells about the status of the added message (Success or Failiure)
